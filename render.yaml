@@ -3,11 +3,12 @@ services:
     name: isbn-komarc-backend
     env: python
     plan: free
-    buildCommand: python - m pip install -- upgrade pip && python - m pi
-    startCommand: pithon - m uvicorn backend_api:app --host 0.0.0.0 --
+    buildCommand: python - m pip install -- upgrade pip && python - m pip install -r requirements.txt
+    startCommand: pithon - m uvicorn backend_api:app --host 0.0.0.0 --port $port
     autoDeploy: true
     envVars:
       - key: ALADIN_TTB_KEY
+        value: ttbboyeong09010919001
         sync: false
       - key: NL_SEOKJI_CERT_KEY
         sync: false
