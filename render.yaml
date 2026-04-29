@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: isbn-komarc-backend
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend_api:app --host 0.0.0.0 --port $PORT
+    autoDeploy: true
+    envVars:
+      - key: ALADIN_TTB_KEY
+        sync: false
+      - key: NL_SEOKJI_CERT_KEY
+        sync: false
